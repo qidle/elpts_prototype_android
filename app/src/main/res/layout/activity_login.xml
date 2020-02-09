@@ -4,6 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:focusable="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_elpts"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/esia_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="60dp"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/cardview_dark_background"
+        app:strokeWidth="1dp"
+        app:icon="@drawable/logo_gosuslugi_rec"
+        app:iconTint="@null"
+        app:iconPadding="8dp"
+        app:backgroundTint="@color/colorWhite"
+        android:textColor="@color/colorPrimary"
+        android:text="Войти с помощью ЕСИА"
+        app:layout_constraintTop_toBottomOf="@id/logo"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sber_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="40dp"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/cardview_dark_background"
+        app:strokeWidth="1dp"
+        app:icon="@drawable/sberbank_svg"
+        app:iconTint="@null"
+        app:iconPadding="8dp"
+        app:backgroundTint="@color/colorWhite"
+        android:textColor="@color/colorPrimary"
+        android:text="Войти с помощью Сбербанк ID"
+        app:layout_constraintTop_toBottomOf="@id/esia_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
