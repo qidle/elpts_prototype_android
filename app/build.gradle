@@ -21,6 +21,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/pdf'] } }
 }
 
 dependencies {
@@ -31,7 +32,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation(name:'SberIdSDK', ext:'aar')
+    implementation(name: 'SberIdSDK', ext: 'aar')
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'

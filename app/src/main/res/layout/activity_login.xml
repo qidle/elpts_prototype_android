@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_elpts"/>
+        app:srcCompat="@drawable/logo_epts"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/esia_button"

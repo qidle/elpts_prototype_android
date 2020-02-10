@@ -2,6 +2,7 @@ package com.elpts;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ViewSwitcher;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.exit)
     MaterialButton exitButton;
+    @BindView(R.id.view_doc)
+    MaterialButton viewDoc;
+    @BindView(R.id.download_doc)
+    MaterialButton downloadDoc;
 
     private ImageSwitcher mImageSwitcher;
     private int[] mImageIds = {R.drawable.reclama_1, R.drawable.reclama_2,
@@ -42,7 +48,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("Электронный ПТС");
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+            supportActionBar.setIcon(R.drawable.ic_launcher_foreground);
+            supportActionBar.setTitle("Электронный ПТС");
+        }
         ButterKnife.bind(this);
         mImageSwitcher = findViewById(R.id.imageSwitcher);
 
@@ -95,6 +106,15 @@ public class MainActivity extends AppCompatActivity {
 
         exitButton.setOnClickListener((b) -> {
             finish();
+        });
+        viewDoc.setOnClickListener((b) -> {
+            startActivity(DocumentActivity.intentFor(getApplicationContext()));
+        });
+
+        downloadDoc.setOnClickListener((b) -> {
+            Uri address = Uri.parse(getString(R.string.example_pdf));
+            Intent openlink = new Intent(Intent.ACTION_VIEW, address);
+            startActivity(openlink);
         });
     }
 }
