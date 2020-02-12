@@ -24,6 +24,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import sberid.sdk.auth.SberIDButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,12 +34,10 @@ public class MainActivity extends AppCompatActivity {
     MaterialButton viewDoc;
     @BindView(R.id.download_doc)
     MaterialButton downloadDoc;
-
     private ImageSwitcher mImageSwitcher;
     private int[] mImageIds = {R.drawable.reclama_1, R.drawable.reclama_2,
             R.drawable.reclama_3};
     private int mCurIndex;
-
 
     public static Intent intentFor(Context uiContext) {
         return new Intent(uiContext, MainActivity.class);
@@ -104,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }, 0L, 1000); // интервал - 1000 миллисекунд на прокрутку, 0 миллисекунд до первого запуска.
 
+
         exitButton.setOnClickListener((b) -> {
             finish();
         });
@@ -116,5 +116,6 @@ public class MainActivity extends AppCompatActivity {
             Intent openlink = new Intent(Intent.ACTION_VIEW, address);
             startActivity(openlink);
         });
+
     }
 }
